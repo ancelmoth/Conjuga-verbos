@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="cabecalho">
+
+        Conjugador de Verbos
+
+    </p>
+
+    <p id="acoes">
+        Digite um verbo <input name="verbo" id="verbo">
+        <input type="button" value="OK" onclick="conjugarVerbo()">
+
+    </p>
+
+    <p id="folha">
+
+    </p>
+    
+</body>
+    <script>
+        function conjugarVerbo(){
+        var verbo = document.getElementById("verbo").value
+        let radical = verbo.substr(0, verbo.length-2)
+        let pessoa = ['Eu','Tu','Ele','Nós','Vós','Eles']
+        let terminacao = ['o','as','a','amos','ais','am']
+        var linha = ''
+        
+        for(i = 0; i <= 5; i++){
+            
+            linha += pessoa[i] + " " + radical + terminacao[i] + "<br>"
+            document.getElementById("folha").innerHTML = linha 
+        }
+        }
+        
+    </script>
+</html>
