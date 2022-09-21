@@ -10,7 +10,7 @@
 
     <p id="cabecalho">
 
-        Conjugador de Verbos
+        <h1>Conjugador de Verbos</h1>
 
     </p>
 
@@ -20,7 +20,7 @@
 
     </p>
 
-    <p id="folha">
+    <p id="folha" style="background-color: rgb(136, 136, 161) ; color: black">
 
     </p>
     
@@ -30,14 +30,31 @@
         var verbo = document.getElementById("verbo").value
         let radical = verbo.substr(0, verbo.length-2)
         let pessoa = ['Eu','Tu','Ele','Nós','Vós','Eles']
-        let terminacao = ['o','as','a','amos','ais','am']
-        var linha = ''
+        let conjugacao = verbo.substr(verbo.length-2) //ele pega o tamanho do verbo e tira duas posicoes
         
-        for(i = 0; i <= 5; i++){
+        switch(conjugacao){
+            case "ar": terminacao = ['o','as','a','amos','ais','am']
+            break;
+            case "er": terminacao = ['o','es','e','emos','eis','em']
+            break;
+            case "ir": terminacao = ['o', 'is','ai','imos','ís','em']
+            break; 
+            default: conjugacao = 0
+            
+        }
+        
+        var linha = '' // CANTAR, COMER, CAIR
+        if(conjugacao != 0){
+            for(i = 0; i <= 5; i++){
             
             linha += pessoa[i] + " " + radical + terminacao[i] + "<br>"
-            document.getElementById("folha").innerHTML = linha 
         }
+    }else{
+        linha = "Não é um verbo"
+    }
+    document.getElementById("folha").innerHTML = linha 
+        
+        
         }
         
     </script>
